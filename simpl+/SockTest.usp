@@ -1,0 +1,174 @@
+#DEFINE_CONSTANT    FALSE        0
+#DEFINE_CONSTANT    TRUE         1
+DIGITAL_INPUT diStartClient;
+DIGITAL_INPUT diClientReconnectEnable;
+DIGITAL_INPUT diEnableServer;
+DIGITAL_INPUT diEnableUDP;
+ANALOG_INPUT aiClientPortNumber;
+ANALOG_INPUT aiServerPortNumber;
+ANALOG_INPUT aiUDP_PortNumber;
+STRING_INPUT siClientIPAddress[256];
+STRING_INPUT siServerIPAddress[256];
+STRING_INPUT siUDP_IPAddress[256];
+STRING_INPUT siClientTx[256];
+STRING_INPUT siServerTx[256];
+STRING_INPUT siUDP_Tx[256];
+DIGITAL_OUTPUT doClientConnected;
+DIGITAL_OUTPUT doServerConnected;
+ANALOG_OUTPUT  aoClientStatus;
+ANALOG_OUTPUT  aoServerStatus;
+STRING_OUTPUT  soClientRx;
+STRING_OUTPUT  soServerRx;
+STRING_OUTPUT  soUDP_Rx;
+TCP_CLIENT MyClient[1024];
+//TCP_SERVER MyServer[1024];
+//UDP_SOCKET MyUDP[1024];
+
+// Client Example Code
+
+PUSH diStartClient
+
+{
+
+    SIGNED_INTEGER status;
+
+    status = SocketConnectClient (MyClient, siClientIPAddress, aiClientPortNumber, diClientReconnectEnable);
+
+    if (status < 0)
+
+        Print("Error connecting socket to address %s on port  %d",
+
+            SiClientIPAddress, aiClientPortNumber);
+
+}
+
+RELEASE diStartClient
+
+{
+
+    SIGNED_INTEGER status;
+
+    status = SocketDisconnectClient (MyClient);
+
+if (status < 0)
+
+    Print("Error disconnecting socket to address %s on port  %d",
+
+            SiClientIPAddress, aiClientPortNumber);
+
+}
+
+SOCKETCONNECT MyClient
+
+{
+
+    SIGNED_LONG_INTEGER PortNumber;
+
+    SIGNED_INTEGER LocalStatus;
+
+    STRING RemoteIPAddress[20];
+
+    STRING RequestedAddress[256];
+
+    
+
+    doClientConnected = 1;
+
+    LocalStatus = SocketGetAddressAsRequested(MyClient, RequestedAddress);
+
+    if (LocalStatus < 0)
+
+        Print("Error getting remote ip address. %d\n", LocalStatus);
+
+    Print("OnConnect: Connect call to %s successful\n", RequestedAddress);
+
+    
+
+    PortNumber = SocketGetPortNumber(MyClient);
+
+    if (PortNumber < 0)
+
+        Print("Error getting client port number. %ld\n", PortNumber);
+
+        
+
+    LocalStatus = SocketGetRemoteIPAddress(MyClient, RemoteIPAddress);
+
+    if (LocalStatus < 0)
+
+        Print("Error getting remote ip address. %d\n", LocalStatus);
+
+    Print("OnConnect: Connected to port %ld on address %s\n",
+
+                PortNumber, RemoteIPAddress);
+
+    SocketSend(MyClient, "This is sent when the socket starts.");
+
+}
+
+SOCKETDISCONNECT MyClient
+
+{
+
+    doClientConnected = 0;
+
+    if (diStartClient)
+
+        Print("Socket disconnected remotely");
+
+    Else
+
+        Print("Local disconnect complete.");
+
+}
+
+SOCKETSTATUS MyClient
+
+{
+
+    SIGNED_INTEGER Status;
+
+    
+
+    Status = SocketGetStatus();
+
+    aoClientStatus = Status;
+
+    Print("The SocketGetStatus returns:       %d\n", Status);
+
+    Print("The MyClient.SocketStatus returns: %d\n", MyClient.SocketStatus);
+
+}
+
+SOCKETRECEIVE MyClient
+
+{
+
+    if (Len(MyClient.SocketRxBuf) < 256)
+
+        Print("Rx: %s", MyClient.SocketRxBuf);
+
+    
+
+    // for now, send to serial output and clear buffer
+
+    soClientRx = MyClient.SocketRxBuf;
+
+    ClearBuffer(MyClient.SocketRxBuf);
+
+}
+
+CHANGE siClientTx
+
+{
+
+    signed_integer iStatus;
+
+    iStatus = SocketSend(MyClient, siClientTx );
+
+    if (iStatus < 0)
+
+        Print("Error Sending to MyClient: %d\n", iStatus);
+
+}
+
