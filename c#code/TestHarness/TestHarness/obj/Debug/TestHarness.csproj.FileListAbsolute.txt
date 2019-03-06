@@ -1,0 +1,8 @@
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.Form1.resources
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.Properties.Resources.resources
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.csproj.GenerateResource.Cache
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\bin\Debug\TestHarness.exe
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\bin\Debug\TestHarness.pdb
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.exe
+C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.pdb
