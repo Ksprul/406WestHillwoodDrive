@@ -1,0 +1,5 @@
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\RIO\bin\Release\RIO.dll
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\RIO\bin\Release\SimplSharpCustomAttributesInterface.dll
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\RIO\bin\Release\SimplSharpHelperInterface.dll
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\RIO\obj\Release\ResolveAssemblyReference.cache
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\RIO\obj\Release\RIO.dll

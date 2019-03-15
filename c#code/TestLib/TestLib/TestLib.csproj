@@ -66,6 +66,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>rem  S# preparation will execute after these operations</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)Testlib.clz" "C:\Program Files (x86)\Crestron\Simpl\usrsplus\TestLib.clz"
+
+copy "$(TargetDir)Testlib.clz" "C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\Control System\TestLib.clz"</PostBuildEvent>
   </PropertyGroup>
 </Project>

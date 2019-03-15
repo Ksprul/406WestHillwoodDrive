@@ -6,3 +6,5 @@ C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\bin
 C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\bin\Debug\TestHarness.pdb
 C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.exe
 C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.pdb
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.exe
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\TestHarness\TestHarness\obj\Debug\TestHarness.pdb

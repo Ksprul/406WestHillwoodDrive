@@ -1,5 +1,7 @@
-﻿MainAssembly=TestLib.dll:ebdf6c44a145d3d39f6f491285318be5
+﻿MainAssembly=TestLib.dll:a9b34f33caac2a5fb6a75cc8ff334a2c
 MainAssemblyMinFirmwareVersion=1.007.0017
+MainAssemblyResource=SimplSharpData.dat:820b61c48c8a2cace82957eed4cc377c
+MainAssemblyResource=SimplSharpData.dat.der:bf862965c00f3e6ec535e4e00e82d30c
 MainAssemblyResource=SimplSharpData.dat:820b61c48c8a2cace82957eed4cc377c
 MainAssemblyResource=SimplSharpData.dat.der:bf862965c00f3e6ec535e4e00e82d30c
 ü

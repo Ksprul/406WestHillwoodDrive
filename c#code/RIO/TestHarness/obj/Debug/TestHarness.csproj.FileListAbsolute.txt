@@ -1,0 +1,8 @@
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\bin\Debug\TestHarness.exe
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\bin\Debug\TestHarness.pdb
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\obj\Debug\TestHarness.Form1.resources
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\obj\Debug\TestHarness.Properties.Resources.resources
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\obj\Debug\TestHarness.csproj.GenerateResource.Cache
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\obj\Debug\TestHarness.exe
+C:\Program Files (x86)\Crestron\Simpl\Programs\406WestHillwoodDrive\c#code\RIO\TestHarness\obj\Debug\TestHarness.pdb

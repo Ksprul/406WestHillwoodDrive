@@ -16,7 +16,14 @@ namespace TestLib
         }
         public int ReturnInt()
         {
-            return (10);
+            return (8);
+        }
+
+        public string ReturnString()
+        {
+            ErrorLog.Error("test message from simpl#");
+            return ("HiYa");
+           
         }
     }
 }
