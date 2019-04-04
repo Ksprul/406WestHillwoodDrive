@@ -1,7 +1,0 @@
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\bin\Debug\TestLib.dll
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\bin\Debug\TestLib.pdb
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\bin\Debug\SimplSharpCustomAttributesInterface.dll
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\bin\Debug\SimplSharpHelperInterface.dll
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\obj\Debug\TestLib.dll
-C:\Users\ksprul\Crestron\406WestHillwoodDrive\c#code\TestLib\TestLib\obj\Debug\TestLib.pdb

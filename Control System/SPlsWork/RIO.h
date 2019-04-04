@@ -8,6 +8,7 @@ namespace RIO;
         // class events
 
         // class functions
+        FUNCTION Configure ( STRING RussIPAddress , SIGNED_LONG_INTEGER DebugOn );
         FUNCTION SelectSonos ( SIGNED_LONG_INTEGER Zone );
         FUNCTION SelectAppleTV ( SIGNED_LONG_INTEGER Zone );
         FUNCTION ZoneOff ( SIGNED_LONG_INTEGER Zone );

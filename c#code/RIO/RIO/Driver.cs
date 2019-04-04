@@ -12,31 +12,49 @@ namespace RIO
    
     public class Driver
     {
-        private string RussSoundIPAddress;
+       
         private IPEndPoint RIOEndpoint; 
         private TCPClient RIO_TcpClient;
+        bool Debug;
 
 
         public Driver()
         {
-            RussSoundIPAddress = "10.0.0.20";//145
-            ErrorLog.Notice("RIO.Driver.Started v14->" + RussSoundIPAddress);
+            Debug = true;
+            if(Debug) ErrorLog.Notice("RIO.Driver.Started v19->");
+        }
 
+        private void SocketConnect()
+        {
             SocketErrorCodes s;
             try
             {
-                ErrorLog.Notice("RIO.Driver.OpeningSocket");
-                RIOEndpoint = new IPEndPoint(IPAddress.Parse(RussSoundIPAddress), 9621);
-                RIO_TcpClient = new TCPClient(RIOEndpoint,4096);
+                if (Debug) ErrorLog.Notice("RIO.Driver.OpeningSocket");
+                
+                RIO_TcpClient = new TCPClient(RIOEndpoint, 4096);
 
                 s = RIO_TcpClient.ConnectToServer();
-                ErrorLog.Notice("RIO.Driver.Connect: " + s.ToString());
-
+                if (Debug) ErrorLog.Notice("RIO.Driver.Connect: " + s.ToString());
             }
             catch (SocketException e)
             {
                 ErrorLog.Error("RIO.Driver SocketException: {0}", e);
             }
+        }
+
+        public void Configure(string RussIPAddress, int DebugOn)
+        {
+
+            RIOEndpoint = new IPEndPoint(IPAddress.Parse(RussIPAddress), 9621);
+
+            if (DebugOn == 1)
+                Debug = true;
+            else
+                Debug = false;
+
+            if (Debug) ErrorLog.Notice("RIO.Driver.UsingIPAddress:" + RIOEndpoint.Address.ToString());
+            if (Debug) ErrorLog.Notice("RIO.Driver.DebugSet:" + Debug.ToString());
+            SocketConnect();
         }
 
         public void SelectSonos(int Zone)
@@ -49,12 +67,12 @@ namespace RIO
         }
         public void ZoneOff(int Zone)
         {
-            SendMsg("EVENT C[1].Z[" + Zone.ToString() + "].status off");
+            SendMsg("EVENT C[1].Z[" + Zone.ToString() + "]!ZoneOff");
         }
         public void SetVolume(int Zone, int Volume)
         {
 
-            ErrorLog.Notice("RIO.Driver.VolumeSet: " + Volume.ToString());
+            if (Debug) ErrorLog.Notice("RIO.Driver.VolumeSet: " + Volume.ToString());
             SendMsg("EVENT C[1].Z["+Zone.ToString()+ "]!KeyPress Volume " + Volume.ToString());
         }
 
@@ -63,20 +81,26 @@ namespace RIO
         public void SendMsg(string TCPMessage)
         {
             SocketErrorCodes s;
+            if (RIO_TcpClient.ClientStatus != SocketStatus.SOCKET_STATUS_CONNECTED)  // the sSocketConnect might have closed on us or timed out
+            {
+                if (Debug) ErrorLog.Notice("RIO.Driver.Closing Stale Socket");
+                RIO_TcpClient.Dispose();
+                if (Debug) ErrorLog.Notice("RIO.Driver.ReconnectingSocket..");
+                SocketConnect(); 
+            }
             try
             {
                 string msg = TCPMessage + "\r";
 
-                ErrorLog.Notice("RIO.Driver.CMD: " + msg);
-     
+                if (Debug) ErrorLog.Notice("RIO.Driver.CMD: " + msg);
+
                 Byte[] data = System.Text.Encoding.ASCII.GetBytes(msg);
 
-                s=RIO_TcpClient.SendData(data,data.Length);
+                s = RIO_TcpClient.SendData(data, data.Length);
 
-                ErrorLog.Notice("RIO.Driver.Send: " + s.ToString());
+                if (Debug) ErrorLog.Notice("RIO.Driver.Send: " + s.ToString());
 
                 RIO_TcpClient.ReceiveData();  ///clear down buffer.
-                
             }
             catch (SocketException e)
             {
