@@ -1,6 +1,19 @@
 <Device Model="CP3">
-   <Network Type="Cresnet" Id="01"/>
+   <Network Type="Cresnet" Id="01">
+      <Device Model="CNAMPX-12X60" DeviceId="3F" Name="CNAMPX-12x60"/>
+      <Device Model="CNX-PAD8A" DeviceId="43"/>
+      <Device Model="CNX-PAD8A" DeviceId="44"/>
+   </Network>
    <Network Type="Ethernet" Id="02">
       <Device Model="Crestron_App" DeviceId="03" Name="Crestron App"/>
+      <Device Model="CEN-RFGW-EX" DeviceId="0A" Name="Ground Floor">
+         <Network Type="RF">
+            <Device Model="HR-310,HRI-310" DeviceId="03" Name="HR-310"/>
+         </Network>
+      </Device>
+      <Device Model="CEN-RFGW-EX" DeviceId="0B" Name="Upper Floor"/>
+      <Device Model="DM-MD8x8" DeviceId="11"/>
+      <Device Model="DM-RMC-100-C" DeviceId="12" Name="Master Bedroom"/>
+      <Device Model="DM-RMC-100-C" DeviceId="13" Name="Loggia"/>
    </Network>
 </Device>
